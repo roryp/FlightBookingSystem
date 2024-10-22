@@ -1,0 +1,75 @@
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+}
+
+h3, h4 {
+    color: #343a40;
+}
+
+/* Search form styles */
+.search-form {
+    margin-bottom: 20px;
+}
+
+.search-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.search-form input[type="text"],
+.search-form input[type="date"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+}
+
+.search-form button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.search-form button:hover {
+    background-color: #0056b3;
+}
+
+/* Flight details styles */
+.flight-details {
+    margin-bottom: 20px;
+}
+
+.flight-details p {
+    margin: 5px 0;
+}
+
+.flight-details button {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.flight-details button:hover {
+    background-color: #218838;
+}
+
+/* Booking confirmation styles */
+.booking-confirmation {
+    margin-bottom: 20px;
+}
+
+.booking-confirmation p {
+    margin: 5px 0;
+}

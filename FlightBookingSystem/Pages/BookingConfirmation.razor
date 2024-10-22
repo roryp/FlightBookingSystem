@@ -1,0 +1,40 @@
+@page "/bookingconfirmation"
+
+@inject NavigationManager Navigation
+@inject FlightService FlightService
+
+<h3>Booking Confirmation</h3>
+
+@if (booking != null)
+{
+    <div>
+        <h4>Booking Reference: @booking.ReferenceNumber</h4>
+        <p><strong>Airline:</strong> @booking.Flight.Airline</p>
+        <p><strong>Origin:</strong> @booking.Flight.Origin</p>
+        <p><strong>Destination:</strong> @booking.Flight.Destination</p>
+        <p><strong>Departure Time:</strong> @booking.Flight.DepartureTime</p>
+        <p><strong>Arrival Time:</strong> @booking.Flight.ArrivalTime</p>
+        <p><strong>Duration:</strong> @booking.Flight.Duration</p>
+        <p><strong>Price:</strong> @booking.Flight.Price</p>
+        <h4>User Information</h4>
+        <p><strong>Name:</strong> @booking.User.Name</p>
+        <p><strong>Email:</strong> @booking.User.Email</p>
+        <p><strong>Phone Number:</strong> @booking.User.PhoneNumber</p>
+    </div>
+}
+else
+{
+    <p>Loading booking confirmation...</p>
+}
+
+@code {
+    [Parameter]
+    public int BookingId { get; set; }
+
+    private Booking booking;
+
+    protected override async Task OnInitializedAsync()
+    {
+        booking = await FlightService.GetBookingByIdAsync(BookingId);
+    }
+}

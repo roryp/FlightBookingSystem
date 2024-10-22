@@ -1,0 +1,30 @@
+@inherits LayoutComponentBase
+
+<PageTitle>Flight Booking System</PageTitle>
+
+<div class="sidebar">
+    <NavMenu />
+</div>
+
+<div class="main">
+    <div class="content px-4">
+        @Body
+    </div>
+</div>
+
+<style>
+    .sidebar {
+        width: 250px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        background-color: #f8f9fa;
+        padding: 20px;
+    }
+
+    .main {
+        margin-left: 270px;
+        padding: 20px;
+    }
+</style>

@@ -1,0 +1,42 @@
+@page "/flightdetails/{flightId:int}"
+
+@inject NavigationManager Navigation
+@inject FlightService FlightService
+
+<h3>Flight Details</h3>
+
+@if (flight != null)
+{
+    <div>
+        <h4>@flight.Airline</h4>
+        <p><strong>Origin:</strong> @flight.Origin</p>
+        <p><strong>Destination:</strong> @flight.Destination</p>
+        <p><strong>Departure Time:</strong> @flight.DepartureTime</p>
+        <p><strong>Arrival Time:</strong> @flight.ArrivalTime</p>
+        <p><strong>Duration:</strong> @flight.Duration</p>
+        <p><strong>Price:</strong> @flight.Price</p>
+        <button @onclick="BookFlight">Book Flight</button>
+    </div>
+}
+else
+{
+    <p>Loading flight details...</p>
+}
+
+@code {
+    [Parameter]
+    public int FlightId { get; set; }
+
+    private Flight flight;
+
+    protected override async Task OnInitializedAsync()
+    {
+        flight = await FlightService.GetFlightByIdAsync(FlightId);
+    }
+
+    private void BookFlight()
+    {
+        // Implement flight booking logic here
+        Navigation.NavigateTo("/bookingconfirmation");
+    }
+}
